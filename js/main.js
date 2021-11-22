@@ -27,7 +27,7 @@ const app = new Vue({
         
     
             // in base a come è fatto ogni response.data prendiamo quello che ci serve
-            console.log('Il nostro numero: ',data.response);
+            console.log('La nostra e-mail è: ',data.response);
             this.email = data.response;
             this.isLoading = false;
             })
