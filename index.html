@@ -12,9 +12,11 @@
     <div id="app" class="text-center m-5">
 
         <div v-if="!httpError">
-          <h1 v-if="!isLoading" >{{email}}</h1>
-          <h2 v-else >loading....</h2>
-          <button @click="getEmail" class="btn btn-info">chiama email</button>
+          <div v-if="!isLoading">
+            <h2 v-for="email in emails">{{email}}</h2>
+          </div>
+          <h2 v-else>loading....</h2>
+          <button @click="getEmails" class="btn btn-info">chiama email</button>
         </div>
         <div v-else>
           <h1>ERRORE!</h1>
