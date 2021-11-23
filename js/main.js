@@ -14,7 +14,7 @@ const app = new Vue({
             this.isLoading = true;
     
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then((response) =>{
+            .then((response) => {
     
             console.log('this',this);
             // tutta la risposta
@@ -24,8 +24,8 @@ const app = new Vue({
             console.log('response.data',response.data);
     
             const data = response.data;
-        
-    
+              
+              
             // in base a come è fatto ogni response.data prendiamo quello che ci serve
             console.log('La nostra e-mail è: ',data.response);
             this.email = data.response;
