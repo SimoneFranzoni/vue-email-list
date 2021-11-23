@@ -4,7 +4,7 @@ const app = new Vue({
   
     data: {
       emails: [],
-      isLoading: true,
+      isLoading: false,
       httpError: false,
       totalMails: 10,
 
@@ -12,23 +12,27 @@ const app = new Vue({
     methods:{
   
       getEmails(){
+        console.log('getEmails');
         this.isLoading = true;
     
         for(let i = 0; i < this.totalMails; i++){
+          console.log('getEmails', i);
               
           axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
           .then((response) => {
-              
-          this.emails.push(r.data.response);
-          if(this.emails.lenght === this.totalMails) this.isLoading = false;
+            
+            console.log('getEmails', response);
+
+            this.emails.push(response.data.response);
+            if(this.emails.length === this.totalMails) this.isLoading = false;
 
           })
-            
           .catch((error) =>{
-          console.log('KO',error);
-          // solo n questo caso viene visulizzato l'erroe
-          this.httpError = true;
+            console.log('KO',error);
+            // solo n questo caso viene visulizzato l'erroe
+            this.httpError = true;
           })
+          
         } 
   
       }
